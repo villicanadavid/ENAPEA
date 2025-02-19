@@ -33,7 +33,7 @@ DEFUN = spark.read.option("mergeSchema", "true").parquet(*parquet_files)
 EDR = DEFUN.filter((DEFUN["Embarazo"].isin(1, 2, 3, 4)))
 EDR = EDR.select(
     "Anio_ocur", "Ent_resid", "Mun_resid", "Loc_resid", "Edad", "Causa_def", "Edo_civil", 
-    "Escolarida", "Sitio_ocur", "Derechohab", "Embarazo", "Rel_emba", "Presunto", "Capitulo","Edad_agru")
+    "Escolarida", "Sitio_ocur", "Derechohab", "Embarazo", "Rel_emba", "Presunto", "Par_agre","Capitulo","Edad_agru")
 EDR.write.mode("overwrite").parquet(os.path.join(parquet_folder, "EDR_INEGI.parquet"))
 print("✅ Procesamiento completado. Archivos guardados en Parquet.")
 
